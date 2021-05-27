@@ -1,0 +1,71 @@
+﻿@page "/"
+@using FirstBlazorProject.Shared
+@using Syncfusion.Blazor.Grids
+
+<SfGrid DataSource="@Employees">
+    <GridColumns>
+        <GridColumn Field="@nameof(Employee.EmployeeId)" HeaderText="ID"></GridColumn>
+        <GridColumn Field="@nameof(Employee.FirstName)" HeaderText="First Name"></GridColumn>
+        <GridColumn Field="@nameof(Employee.LastName)" HeaderText="Last Name"></GridColumn>
+        <GridColumn Field="@nameof(Employee.Email)" HeaderText="Email"></GridColumn>
+    </GridColumns>
+</SfGrid>
+
+
+@code{
+    public List<Employee> Employees { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Employees = LoadData();
+    }
+
+    private List<Employee> LoadData()
+    {
+        Employee e1 = new Employee
+        {
+            EmployeeId = 1,
+            FirstName = "Isaac",
+            LastName = "Oselukwue",
+            Email = "Isaac.Oselukwue@coralpay.com",
+            DateOfBirth = new DateTime(1999, 5, 29),
+            Gender = Gender.Male,
+            Department = new Department { DepartmentId = 1, DepartmentName = "ETG" },
+            PhotoPath = "C:/Users/princ/Pictures/20181125_164704.jpg"
+        };
+        Employee e2 = new Employee
+        {
+            EmployeeId = 2,
+            FirstName = "Isaac",
+            LastName = "Oselukwue",
+            Email = "Isaac.Oselukwue@coralpay.com",
+            DateOfBirth = new DateTime(1999, 5, 29),
+            Gender = Gender.Other,
+            Department = new Department { DepartmentId = 1, DepartmentName = "ETG" },
+            PhotoPath = "C:/Users/princ/Pictures/20181125_164704.jpg"
+        };
+        Employee e3 = new Employee
+        {
+            EmployeeId = 3,
+            FirstName = "Demilade",
+            LastName = "Oyawoye",
+            Email = "Isaac.Oselukwue@coralpay.com",
+            DateOfBirth = new DateTime(1999, 5, 29),
+            Gender = Gender.Male,
+            Department = new Department { DepartmentId = 1, DepartmentName = "ETG" },
+            PhotoPath = "C:/Users/princ/Pictures/20181125_164704.jpg"
+        };
+        Employee e4 = new Employee
+        {
+            EmployeeId = 4,
+            FirstName = "Isaac",
+            LastName = "Oselukwue",
+            Email = "Isaac.Oselukwue@coralpay.com",
+            DateOfBirth = new DateTime(1999, 5, 29),
+            Gender = Gender.Female,
+            Department = new Department { DepartmentId = 1, DepartmentName = "ETG" },
+            PhotoPath = "C:/Users/princ/Pictures/20181125_164704.jpg"
+        };
+        return new List<Employee> { e1, e2, e3, e4 };
+    }
+}
